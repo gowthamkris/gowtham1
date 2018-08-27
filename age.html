@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Age Application</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Age Application</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="usr">Year:</label>
+        <input type="number" class="form-control" id="year">
+        <br />
+        <button type="button" class="btn btn-success" onclick="getAge()">Get Age</button>
+      </div>
+
+      <div class="alert alert-success" id="age">
+        Age :
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <script>
+    var getAge = function(){
+      var year = document.getElementById("year").value;
+      if(year === "") {
+        alert("Hey! please enter year");
+      } else {
+        var currentYear = new Date().getFullYear();
+        var age = currentYear - year;
+        document.getElementById("age").innerHTML = "<strong>Your age is " + age + "</strong>";
+      }
+
+    }
+  </script>
+</body>
+</html>
