@@ -1,0 +1,44 @@
+<html>
+<head>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+     <script>
+    var Letters="ABCDEFGHIJkLMNOPURSTUVWXYZ";
+   
+        function randomNumber(max){
+            var randomNum=Math.random();
+            var numExpanded=randomNum*max;
+            var numFloored=Math.floor(numExpanded);
+            return numFloored;
+        }
+    function pickletter(){
+        var randoms=randomNumber(Letters.length);
+        var randomletter=Letters.charAt(randoms);
+        return randomletter;
+    }
+    
+         function positionpick(){
+             var span =$("<span>");
+             span.css("position","absoulte");
+            randomPercent=randomNumber(100)+"%";
+             span.css("left",randomPercent);
+             span.css("top",0);
+             span.appendTo("body");
+             //span.text(letterpick());
+             return span;
+         }
+         function makeLetterFall(){
+             var letterElement=pickposition();
+             letterElement.animate({"top":"95%},5000);
+         }
+    $(document).on();
+       
+         setInterval(makeLetterFall,1000);
+        
+   
+    </script>
+    </head>
+    <body>
+    
+    </body>
+</html>
