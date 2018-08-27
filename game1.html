@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+        <script>
+            var letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            function randomNumber(max)
+            {
+             var randomNum=Math.random();
+            var numExpanded=randomNum*max;
+            var numFloored=Math.floor(numExpanded);
+                return numFloored;
+            }
+            function pickLetter()
+            {
+                var randoms=randomNumber(letters.length);
+                var randomLetter=letters.charAt(randoms);
+                return randomLetter;
+            }
+            function pickposition()
+            {
+                var span=$("<span/>");
+                span.css("position","absolute");
+                span.css("top",0);
+                randomPercent=randomNumber(100)+"%";
+                span.css("left",randomPercent);
+                span.text(pickLetter());
+                span.appendTo("body");
+                return span;
+            }
+            function makeLetterFall()
+            {
+                var letterElement=pickposition();
+                letterElement.animate({"top":"95%"},5000);
+                letterElement.css("color",getRandomColor());
+                letterElement.fadeOut(100);
+            }
+            function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+            $(document).on();
+            setInterval(makeLetterFall,0);
+        </script>
+    </head>
+    <body style="background-color: black"></body>
+</html>
